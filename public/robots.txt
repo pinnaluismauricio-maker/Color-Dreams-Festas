@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.colordreamsfestascriativas.com.br/sitemap.xml

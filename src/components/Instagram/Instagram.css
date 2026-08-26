@@ -1,0 +1,34 @@
+.instagram {
+  background: var(--cream);
+}
+
+.instagram__card {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 64px 40px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-soft);
+  border: 1px solid var(--line);
+}
+
+.instagram__icon {
+  font-size: 2.6rem;
+  color: var(--rose-deep);
+  margin-bottom: 18px;
+}
+
+.instagram__card h2 {
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+}
+
+.instagram__card p {
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--sky-ink);
+  font-size: 1.02rem;
+}
+
+.instagram__card .btn {
+  margin-top: 26px;
+}
