@@ -9,10 +9,12 @@ import Location from './components/Location/Location'
 import Instagram from './components/Instagram/Instagram'
 import Footer from './components/Footer/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat/WhatsAppFloat'
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <>
+      <Analytics />
       <Header />
       <main>
         <Hero />
