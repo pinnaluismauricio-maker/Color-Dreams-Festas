@@ -81,50 +81,133 @@ export const DIFFERENTIALS: Differential[] = [
   { emoji: '🎉', title: 'Momentos especiais' },
 ]
 
-export type GalleryCategory = 'Todos' | 'Aniversários' | 'Chá Revelação' | 'Casamentos' | 'Decorações' | 'Kits'
-
-export const GALLERY_CATEGORIES: GalleryCategory[] = [
-  'Todos',
-  'Aniversários',
-  'Chá Revelação',
-  'Casamentos',
-  'Decorações',
-  'Kits',
-]
-
-export type GalleryItem = {
-  id: string
-  category: Exclude<GalleryCategory, 'Todos'>
-  image?: string
-  alt?: string
+export type GalleryPhoto = {
+  src: string
+  alt: string
 }
 
-// Itens com "image" preenchido são fotos reais da Color Dreams.
-// Itens sem "image" ainda usam um placeholder elegante, para categorias
-// que ainda não têm foto real disponível.
-export const GALLERY_ITEMS: GalleryItem[] = [
+export type GalleryAlbum = {
+  id: string
+  title: string
+  description: string
+  photos: GalleryPhoto[]
+  /** Como a foto de capa se encaixa no card (fotos de evento ficam melhor em "cover";
+   *  artes/tabelas com texto ficam melhores em "contain", sem cortar nada). */
+  coverFit?: 'cover' | 'contain'
+}
+
+// Álbuns reais da Color Dreams. Clicar na capa abre as demais fotos daquela pasta.
+export const GALLERY_ALBUMS: GalleryAlbum[] = [
   {
-    id: 'g1',
-    category: 'Aniversários',
-    image: '/images/gallery/aniversarios-1.jpg',
-    alt: 'Decoração de aniversário em tons de lilás e dourado, com tema de princesa',
+    id: 'aniversarios',
+    title: 'Aniversários',
+    description: 'Decorações de aniversário por tema e faixa etária',
+    photos: [
+      {
+        src: '/images/gallery/aniversarios-tiana.jpg',
+        alt: 'Decoração de aniversário tema Princesa Tiana, em verde e dourado',
+      },
+      {
+        src: '/images/gallery/aniversarios-flamengo.jpg',
+        alt: 'Decoração de aniversário tema Flamengo, em vermelho, preto e dourado',
+      },
+      {
+        src: '/images/gallery/aniversarios-spiderman.jpg',
+        alt: 'Decoração de aniversário tema Homem-Aranha, em azul e vermelho',
+      },
+      {
+        src: '/images/gallery/aniversarios-1.jpg',
+        alt: 'Decoração de aniversário tema Rapunzel, em lilás e dourado',
+      },
+      {
+        src: '/images/gallery/aniversarios-2.jpg',
+        alt: 'Decoração de aniversário de 1 aninho em tons pastel',
+      },
+      {
+        src: '/images/gallery/aniversarios-mickey-safari.jpg',
+        alt: 'Decoração de 1 aninho tema safari com Mickey, em verde',
+      },
+      {
+        src: '/images/gallery/aniversarios-cereja.jpg',
+        alt: 'Decoração de aniversário tema cereja, em rosa e vermelho',
+      },
+      {
+        src: '/images/gallery/aniversarios-15anos.jpg',
+        alt: 'Decoração de 15 anos em azul e prata',
+      },
+      {
+        src: '/images/gallery/aniversarios-70anos.jpg',
+        alt: 'Decoração de 70 anos em azul e prata',
+      },
+      {
+        src: '/images/gallery/aniversarios-61anos.jpg',
+        alt: 'Decoração de aniversário em preto e dourado',
+      },
+    ],
   },
   {
-    id: 'g2',
-    category: 'Aniversários',
-    image: '/images/gallery/aniversarios-2.jpg',
-    alt: 'Decoração de aniversário de 1 aninho em tons pastel',
+    id: 'casamentos',
+    title: 'Casamentos',
+    description: 'Decorações românticas para o grande dia',
+    photos: [
+      {
+        src: '/images/gallery/casamentos-jardim.jpg',
+        alt: 'Decoração de casamento com parede de plantas e flores brancas',
+      },
+    ],
   },
   {
-    id: 'g4',
-    category: 'Chá Revelação',
-    image: '/images/gallery/cha-revelacao-1.jpg',
-    alt: 'Decoração de chá revelação em azul e rosa, com ursinhos de pelúcia',
+    id: 'cha-revelacao',
+    title: 'Chá Revelação',
+    description: 'Momentos emocionantes de revelação em família',
+    photos: [
+      {
+        src: '/images/gallery/cha-revelacao-1.jpg',
+        alt: 'Decoração de chá revelação em azul e rosa, com ursinhos de pelúcia',
+      },
+    ],
   },
   {
-    id: 'g5',
-    category: 'Kits',
-    image: '/images/gallery/kits-1.jpg',
-    alt: 'Kit de mesa decorada, estilo pegue e monte, em tons rústicos',
+    id: 'pegue-e-monte',
+    title: 'Pegue e Monte',
+    description: 'Kits de mesa decorada prontos para você montar',
+    photos: [
+      {
+        src: '/images/gallery/pegue-e-monte-laranja-pink.jpg',
+        alt: 'Kit pegue e monte em laranja e pink, com mesas de madeira',
+      },
+      {
+        src: '/images/gallery/pegue-e-monte-azul-dourado.jpg',
+        alt: 'Kit pegue e monte em azul e dourado, com mesas de madeira',
+      },
+      {
+        src: '/images/gallery/pegue-e-monte-rustico.jpg',
+        alt: 'Kit pegue e monte rústico, com bases de vime e detalhes em verde',
+      },
+      {
+        src: '/images/gallery/kits-1.jpg',
+        alt: 'Kit de mesa decorada, estilo pegue e monte, em tons rústicos',
+      },
+    ],
+  },
+  {
+    id: 'valores',
+    title: 'Valores',
+    description: 'Preços dos serviços de estação (pipoca, lanches, açaí e sorvete)',
+    coverFit: 'contain',
+    photos: [
+      {
+        src: '/images/gallery/valores-pipoca-algodao.png',
+        alt: 'Tabela de preços da estação de pipoca e algodão doce',
+      },
+      {
+        src: '/images/gallery/valores-casinha-lanches.png',
+        alt: 'Tabela de preços da casinha de lanches',
+      },
+      {
+        src: '/images/gallery/valores-acai-sorvete.png',
+        alt: 'Tabela de preços da estação de açaí e sorvete',
+      },
+    ],
   },
 ]

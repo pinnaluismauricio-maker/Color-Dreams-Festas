@@ -50,7 +50,7 @@ function Hero() {
           <img
             className="hero__photo"
             src="/images/gallery/aniversarios-3.jpg"
-             alt="Decoração de aniversário em dourado e branco"
+            alt="Decoração de aniversário em dourado e branco"
           />
           <div className="hero__media-tag">São João de Meriti · RJ</div>
         </div>
